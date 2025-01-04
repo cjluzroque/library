@@ -1,3 +1,5 @@
+/* Script for Library */
+
 const myLibrary = [];
 
 function Book(name, author, pages, read) {
