@@ -32,6 +32,13 @@ function addBookToLibrary() {
     bookform.classList.add('bookform');
 
     // Title form input
+    const titleform = document.createElement('div');
+    const titleformlabel = document.createElement('label');
+    titleformlabel.classList.add('titleformlabel');
+    titleformlabel.textContent = 'Title:';
+    titleformlabel.for = 'title';
+    titleform.appendChild(titleformlabel);
+
     const titleinput = document.createElement('input');
     titleinput.classList.add('titleinput');
 
@@ -41,10 +48,18 @@ function addBookToLibrary() {
     titleinput.title = 'Please enter book title';
     titleinput.placeholder='Title';
 
-    bookform.appendChild(titleinput);
+    titleform.appendChild(titleinput);
+    bookform.appendChild(titleform);
 
 
     // Author form input
+    const authorform = document.createElement('div');
+    const authorformlabel = document.createElement('label');
+    authorformlabel.classList.add('authorformlabel');
+    authorformlabel.textContent = 'Author:';
+    authorformlabel.for = 'author';
+    authorform.appendChild(authorformlabel);
+
     const authorinput = document.createElement('input');
     authorinput.classList.add('authorinput');
 
@@ -54,21 +69,37 @@ function addBookToLibrary() {
     authorinput.title = 'Please enter author';
     authorinput.placeholder='Author';
 
-    bookform.appendChild(authorinput);
+    authorform.appendChild(authorinput);
+    bookform.appendChild(authorform);
 
     // Page form input
+    const pageform = document.createElement('div');
+    const pageformlabel = document.createElement('label');
+    pageformlabel.classList.add('pageformlabel');
+    pageformlabel.textContent = 'Page Count:';
+    pageformlabel.for = 'pages';
+    pageform.appendChild(pageformlabel);
+
     const pageinput = document.createElement('input');
     pageinput.classList.add('pageinput');
 
     pageinput.required = true;
     pageinput.type = 'number';
-    pageinput.name = 'title';
+    pageinput.name = 'pages';
     pageinput.title = 'Please enter number of pages';
     pageinput.placeholder='Page Count';
 
-    bookform.appendChild(pageinput);
+    pageform.appendChild(pageinput);
+    bookform.appendChild(pageform);
 
     // Read form input
+    const readform = document.createElement('div');
+    const readformlabel = document.createElement('label');
+    readformlabel.classList.add('readformlabel');
+    readformlabel.textContent = 'Read?';
+    readformlabel.for = 'read';
+    readform.appendChild(readformlabel);
+
     const readinput = document.createElement('input');
     readinput.classList.add('readinput');
 
@@ -76,7 +107,8 @@ function addBookToLibrary() {
     readinput.name = 'read';
     readinput.title = 'Read?';
 
-    bookform.appendChild(readinput);
+    readform.appendChild(readinput);
+    bookform.appendChild(readform);
 
     // Create Form and add to layout 
     const submitbook = document.createElement('button');
