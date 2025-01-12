@@ -21,9 +21,7 @@ const container = document.querySelector('.container');
 const createBook = document.querySelector('.createBook');
 createBook.addEventListener("click", function () {
   console.log('new button pressed');
-  if (container.classList.contains('blur')) {
-
-  } else {
+  if (!container.classList.contains('blur')) {
     addBookToLibrary();
   }
 });
