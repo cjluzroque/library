@@ -6,7 +6,8 @@ function Book(name, author, pages, read) {
     this.name = name; 
     this.author = author; 
     this.pages = pages; 
-    this.read = read; 
+    this.read = read;
+
     this.info = function() {
       if (this.read) {
         console.log(this.name + ' by ' + this.author + ', ' + this.pages + ' pages, already read');
@@ -32,22 +33,52 @@ function addBookToLibrary() {
     bookdialogue.classList.add('bookdialogue');
     const bookform = document.createElement('form');
     bookform.classList.add('bookform');
+
+    // Title form input
     const titleinput = document.createElement('input');
     titleinput.classList.add('titleinput');
+
+    titleinput.type = 'text';
+    titleinput.name = 'title';
+    titleinput.title = 'Please enter book title';
+    titleinput.placeholder='Title';
+
     bookform.appendChild(titleinput);
-    titleinput.value = 'TITLE'// Test title input
+
+
+    // Author form input
     const authorinput = document.createElement('input');
     authorinput.classList.add('authorinput');
+
+    authorinput.type = 'text';
+    authorinput.name = 'author';
+    authorinput.title = 'Please enter author';
+    authorinput.placeholder='Author';
+
     bookform.appendChild(authorinput);
-    authorinput.value = 'AUTHOR'// Test title input
+
+    // Page form input
     const pageinput = document.createElement('input');
     pageinput.classList.add('pageinput');
+
+    pageinput.type = 'number';
+    pageinput.name = 'title';
+    pageinput.title = 'Please enter number of pages';
+    pageinput.placeholder='Page Count';
+
     bookform.appendChild(pageinput);
-    pageinput.value = 'PAGES'// Test title input
+
+    // Read form input
     const readinput = document.createElement('input');
     readinput.classList.add('readinput');
+
+    readinput.type = 'checkbox';
+    readinput.name = 'read';
+    readinput.title = 'Read?';
+
     bookform.appendChild(readinput);
-    readinput.value = 'READ'// Test title input
+
+    // Create Form and add to layout 
     const submitbook = document.createElement('button');
     submitbook.classList.add('submitbook');
     bookform.appendChild(submitbook);
@@ -61,7 +92,9 @@ function addBookToLibrary() {
 
       // Create Object
       console.log('Creating Object');
-      const book = new Book(titleinput.value, authorinput.value, pageinput.value, readinput.value);
+      var readstate = false;
+      if (readinput.checked) readstate = true;
+      const book = new Book(titleinput.value, authorinput.value, pageinput.value, readstate);
       myLibrary.push(book);
       console.log(book);
 
