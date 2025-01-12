@@ -1,6 +1,6 @@
 /* Script for Library */
 
-const myLibrary = [];
+var myLibrary = [];
 
 function Book(name, author, pages, read) {
     this.name = name; 
@@ -62,6 +62,7 @@ function addBookToLibrary() {
       // Create Object
       console.log('Creating Object');
       const book = new Book(titleinput.value, authorinput.value, pageinput.value, readinput.value);
+      myLibrary.push(book);
       console.log(book);
 
       // Remove dialogue box
@@ -111,6 +112,7 @@ function addBookToLibrary() {
       // Remove function for card 
       bookaction.addEventListener("click", function () {
         console.log('Remove button pressed');
+        myLibrary = myLibrary.filter((item) => item !== book);
         newbook.remove();
       });
     });
