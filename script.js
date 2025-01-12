@@ -17,15 +17,20 @@ function Book(name, author, pages, read) {
   }
 
 // Create new book cards 
+const container = document.querySelector('.container');
 const createBook = document.querySelector('.createBook');
 createBook.addEventListener("click", function () {
   console.log('new button pressed');
-  addBookToLibrary();
+  if (container.classList.contains('blur')) {
+
+  } else {
+    addBookToLibrary();
+  }
 });
 
 function addBookToLibrary() {
     // Create dialogue box with form element 
-    const layout = document.querySelector('.container');
+    const layout = document.querySelector('body');
     const bookdialogue = document.createElement('div');
     bookdialogue.classList.add('bookdialogue');
     const bookform = document.createElement('form');
@@ -51,6 +56,8 @@ function addBookToLibrary() {
     titleform.appendChild(titleinput);
     bookform.appendChild(titleform);
 
+    // Blur background
+    container.classList.add('blur');
 
     // Author form input
     const authorform = document.createElement('div');
@@ -120,6 +127,9 @@ function addBookToLibrary() {
 
     // Create Book Object and remove dialogue
     bookform.addEventListener('submit', (event) => {
+      // Remove blur
+      container.classList.remove('blur');
+
       // Prevent the default form submission behavior
       event.preventDefault(); 
 
