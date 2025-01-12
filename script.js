@@ -36,6 +36,7 @@ function addBookToLibrary() {
     const titleinput = document.createElement('input');
     titleinput.classList.add('titleinput');
 
+    titleinput.required = true;
     titleinput.type = 'text';
     titleinput.name = 'title';
     titleinput.title = 'Please enter book title';
@@ -48,6 +49,7 @@ function addBookToLibrary() {
     const authorinput = document.createElement('input');
     authorinput.classList.add('authorinput');
 
+    authorinput.required = true;
     authorinput.type = 'text';
     authorinput.name = 'author';
     authorinput.title = 'Please enter author';
@@ -59,6 +61,7 @@ function addBookToLibrary() {
     const pageinput = document.createElement('input');
     pageinput.classList.add('pageinput');
 
+    pageinput.required = true;
     pageinput.type = 'number';
     pageinput.name = 'title';
     pageinput.title = 'Please enter number of pages';
