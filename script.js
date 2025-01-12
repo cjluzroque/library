@@ -1,5 +1,4 @@
 /* Script for Library */
-
 var myLibrary = [];
 
 function Book(name, author, pages, read) {
@@ -17,7 +16,6 @@ function Book(name, author, pages, read) {
       return;
     };
   }
-
 
 // Create new book cards 
 const createBook = document.querySelector('.createBook');
@@ -149,7 +147,4 @@ function addBookToLibrary() {
         newbook.remove();
       });
     });
-
-    
-
 }
