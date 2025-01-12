@@ -163,7 +163,7 @@ function addBookToLibrary() {
       // Add Page Count to the book card
       const bookpages = document.createElement("p");
       bookpages.classList.add('description');
-      bookpages.textContent = book.pages;
+      bookpages.textContent = book.pages + " Pages";
       newbook.appendChild(bookpages);
 
       // Add remove icon to the book card 
