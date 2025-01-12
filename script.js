@@ -6,7 +6,6 @@ function Book(name, author, pages, read) {
     this.author = author; 
     this.pages = pages; 
     this.read = read;
-
     this.info = function() {
       if (this.read) {
         console.log(this.name + ' by ' + this.author + ', ' + this.pages + ' pages, already read');
@@ -96,6 +95,7 @@ function addBookToLibrary() {
       var readstate = false;
       if (readinput.checked) readstate = true;
       const book = new Book(titleinput.value, authorinput.value, pageinput.value, readstate);
+      book.info();
       myLibrary.push(book);
       console.log(book);
 
