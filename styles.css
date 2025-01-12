@@ -1,1 +1,393 @@
 /* CSS Styling for Library */ 
+
+@font-face {
+    font-family: "SansPro";
+    src: url("SourceSansPro-Regular.otf") format("opentype");
+}
+
+:root {
+    --darkcolor: #3b82f6;
+    --color: #dbeafe;
+    --lightcolor: #f5f5f5;
+    --hover: #ffedd5;
+    --orange: #ea580c;
+    --lighterorange: #fdba74;
+    font-size: 1.2em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "SansPro";
+}
+
+svg {
+    height: 50px;
+}
+
+.trend>svg {
+    fill: black;
+    transition: fill 120ms;
+}
+
+.nav-link>svg, .setting-link>svg {
+    fill: var(--lightcolor);
+    transition: fill 120ms;
+}
+
+.nav-link:hover svg, .setting-link:hover svg {
+    fill: var(--lighterorange);
+    transition: fill 120ms;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    grid-template-areas: 
+        "sidebar main-area";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: var(--darkcolor);
+    color: var(--lightcolor);
+    padding: 0 1em;
+}
+
+.logo {
+    font-size: 2em;
+}
+
+.main-area {
+    display: grid;
+    grid-area: main-area;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "top-area"
+        "main-layout";
+}
+
+.nav-link, .setting-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+    transition: color 120ms;
+}
+
+.nav-link:hover, .setting-link:hover {
+    color: var(--hover);
+    transition: color 120ms linear;
+    transform-origin: left center;
+    transform: scale(1.04);
+    transition: transform 120ms linear;
+    cursor: pointer;
+}
+
+.top-area {
+    grid-area: top-area;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 2em;
+    gap: 1em;
+}
+
+.first-area {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.searchbar>svg, .actions>svg {
+    fill: black;
+    transition: fill 100ms;
+    transform-origin: center center;
+    transition: transform 100ms;
+}
+
+.searchbar:hover>svg, 
+.searchbar:focus-within>svg {
+    fill: var(--orange);
+    transition: fill 100ms;
+    transform-origin: center center;
+    transform: scale(1.1);
+    transition: transform 100ms;
+    cursor: pointer;
+}
+
+.actions>svg:hover{
+    fill: var(--orange);
+    transition: fill 100ms;
+    transform-origin: center center;
+    transform: scale(1.1);
+    transition: transform 100ms;
+    cursor: pointer;
+}
+
+span {
+    padding: 8px 15px;
+    margin: 2px 4px;
+    display: inline;
+    max-height: 1.2em;
+    width: fit-content;
+    min-width: 100px;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    transform: scale(1);
+    transition: transform 1000ms;
+    background-color: var(--color);
+    transition: background-color 100ms;
+    transition: border 100ms;
+}
+
+span:focus, .searchbar:hover>span {
+    transform-origin: left center;
+    transform: scale(1.1);
+    transition: transform 1000ms;
+    background-color: var(--hover);
+    transition: background-color 50ms;
+    border: 2px solid var(--orange);
+    transition: border 50ms;
+    width: max-content;
+    min-width: 200px;
+    max-width: 400px;
+}
+
+span:focus-visible {
+    outline: none;
+}
+
+.my-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-left:auto;
+}
+
+.notification {
+    fill: black;
+    transition: fill 100ms;
+    transition: transform 100ms;
+}
+
+.notification:hover {
+    fill: var(--orange);
+    transition: fill 100ms;
+    transform: scale(1.1);
+    transition: transform 100ms;
+}
+
+.second-area {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    gap: 15px;
+    transform-origin: left center;
+    transform: scale(1.2);
+    width: 250px;
+}
+
+.buttons {
+    margin-left: auto;
+    display: flex; 
+    gap: 0.8em;
+}
+
+button {
+    background-color: var(--darkcolor);
+    font-size: 0.9em;
+    border: none;
+    color: var(--lightcolor);
+    padding: 10px 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 50ms;
+    transform: transform 50ms;
+}
+
+button:hover {
+    background-color: var(--orange);
+    transition: background-color 50ms;
+    transform: scale(1.05);
+    transform: transform 50ms;
+}
+
+.main-layout {
+    grid-area: main-layout;
+    display: grid;
+    box-shadow: inset 1px 3px 5px #94a3b8;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2em;
+    padding: 2em;
+    background-color: var(--color);
+    grid-template-areas: 
+        "projects announcements"
+        "projects trending"
+}
+
+.projects {
+    grid-area: projects;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects>.layout {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.8em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid var(--darkcolor);
+    justify-content:stretch;
+    background-color: var(--lightcolor);
+    transition: background-color 120ms linear;
+    transition: transform 120ms linear;
+}
+
+.card:hover {
+    background-color: var(--hover);
+    border-left: 5px solid var(--orange);
+    transform-origin: center center;
+    transform: scale(1.02);
+    transition: background-color 120ms linear;
+    transition: transform 120ms linear;
+}
+
+.card>.title {
+    color: var(--darkcolor);
+    transition: color 120ms;
+}
+
+.card:hover>.title {
+    color: var(--orange);
+    transition: color 120ms;
+}
+
+.description {
+    margin-bottom: 1em;
+}
+
+.actions {
+    align-self: end;
+    margin-top: auto;
+}
+
+.card svg {
+    height: 25px;
+}
+
+.announcements {
+    grid-area: announcements;
+}
+
+.announcement {
+    border-bottom: 1px solid black;
+    padding: 0 1em 1em 1em;
+    margin-bottom: 1em;
+}
+
+.announcement:last-of-type {
+    padding: 0 1em;
+    border-bottom: none;
+}
+
+.announcement div {
+    font-size: 1.2em;
+    color: var(--darkcolor);
+    transition: color 120ms linear;
+    margin-bottom: 0.4em;
+}
+
+.announcement:hover div {
+    font-size: 1.2em;
+    color: var(--orange);
+    transition: color 120ms linear;
+    margin-bottom: 0.4em;
+    cursor: pointer;
+}
+
+.trending {
+    grid-area: trending;
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.5em;
+    margin-bottom: 0.2em;
+    border-radius: 15px;
+}
+
+.trend > svg {
+    justify-items: start;
+    flex-shrink: 0;
+}
+
+.trend:last-of-type {
+    margin-bottom: 0;
+}
+
+.trend:hover .user, .trend:hover svg {
+    color: var(--orange);
+    transition: color 120ms;
+    fill: var(--orange);
+    transition: fill 50ms;
+    transition: transform 100ms;
+    cursor: pointer;
+}
+
+.trend:hover svg {
+    transform: scale(1.1);
+    transition: transform 100ms;
+}
+
+.title {
+    margin-bottom: 0.5em;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.projects>.title, .announcements>.title, .trending>.title {
+    margin-left: 0.2em;
+}
+
+.card, .announcements>.layout, .trending>.layout {
+    background-color: var(--lightcolor);
+    border-radius: 10px;
+    box-shadow: 5px 3px 10px #94a3b8;
+    padding: 1em;
+}
+
+.user {
+    font-weight: bold;
+    color: var(--darkcolor);
+    transition: color 120ms;
+}

@@ -22,10 +22,49 @@ function Book(name, author, pages, read) {
  };
 
 function addBookToLibrary() {
-    // do stuff here
+    // Create dialogue box with form element 
+
+    // Input Name
+
+    // Input Author 
+
+    // Input Pages
+
+    // Input Read state 
+
+    // Remove dialogue box when done
+
+    // Create Book from form input 
+    const layoutarea = document.querySelector('.layout');
+    const newbook = document.createElement("div");
+    newbook.classList.add('card');
+    const booktitle = document.createElement("p");
+    booktitle.classList.add('title');
+    booktitle.textContent = 'TITLE OF BOOK'; // TESTING TITLE
+    newbook.appendChild(booktitle);
+    const bookauthor = document.createElement("p");
+    bookauthor.classList.add('description');
+    bookauthor.textContent = 'AUTHOR OF BOOK'; // TESTING AUTHOR
+    newbook.appendChild(bookauthor);
+    const bookpages = document.createElement("p");
+    bookpages.classList.add('description');
+    bookpages.textContent = 'PAGES OF BOOK'; // TESTING PAGES
+    newbook.appendChild(bookpages);
+    layoutarea.appendChild(newbook);
+
+    // Create card from Book 
+
+    // Add to page 
+
+    // Remove function for card 
+
 }
 
  
+addBookToLibrary();
+addBookToLibrary();
+addBookToLibrary();
+addBookToLibrary();
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
 console.log(Object.getPrototypeOf(book1) === Book.prototype); // returns true
 book1.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, already read"
