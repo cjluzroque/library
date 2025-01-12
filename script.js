@@ -21,6 +21,12 @@ function Book(name, author, pages, read) {
     console.log("Proto test! " + this.name);
  };
 
+const createBook = document.querySelector('.createBook');
+createBook.addEventListener("click", function () {
+  console.log('new button pressed');
+  addBookToLibrary();
+});
+
 function addBookToLibrary() {
     // Create dialogue box with form element 
 
