@@ -21,6 +21,8 @@ function Book(name, author, pages, read) {
     console.log("Proto test! " + this.name);
  };
 
+
+// Create new book cards 
 const createBook = document.querySelector('.createBook');
 createBook.addEventListener("click", function () {
   console.log('new button pressed');
@@ -66,11 +68,6 @@ function addBookToLibrary() {
 
 }
 
- 
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
 console.log(Object.getPrototypeOf(book1) === Book.prototype); // returns true
 book1.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, already read"
