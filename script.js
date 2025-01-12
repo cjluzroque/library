@@ -81,6 +81,7 @@ function addBookToLibrary() {
     // Create Form and add to layout 
     const submitbook = document.createElement('button');
     submitbook.classList.add('submitbook');
+    submitbook.textContent = "Create Book";
     bookform.appendChild(submitbook);
     bookdialogue.appendChild(bookform);
     layout.appendChild(bookdialogue);

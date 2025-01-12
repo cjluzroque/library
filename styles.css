@@ -136,7 +136,7 @@ svg {
     cursor: pointer;
 }
 
-span {
+span, input {
     padding: 8px 15px;
     margin: 2px 4px;
     display: inline;
