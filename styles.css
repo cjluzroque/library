@@ -391,3 +391,14 @@ button:hover {
     color: var(--darkcolor);
     transition: color 120ms;
 }
+
+.bookdialogue {
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: var(--lightcolor);
+    padding: 1em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
