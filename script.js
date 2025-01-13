@@ -121,7 +121,17 @@ function addBookToLibrary() {
     submitbook.textContent = "Create Book";
     bookform.appendChild(submitbook);
     bookdialogue.appendChild(bookform);
+
+    // Cancel button
+    const cancel = document.createElement('button');
+    cancel.classList.add('cancel');
+    cancel.textContent = "Cancel";
+    bookdialogue.appendChild(cancel);
     layout.appendChild(bookdialogue);
+    cancel.addEventListener("click", function () {
+      container.classList.remove('blur');
+      bookdialogue.remove();
+    });
 
     // Create Book Object and remove dialogue
     bookform.addEventListener('submit', (event) => {
