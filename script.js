@@ -20,8 +20,8 @@ function Book(name, author, pages, read) {
 const container = document.querySelector('.container');
 const createBook = document.querySelector('.createBook');
 createBook.addEventListener("click", function () {
-  console.log('new button pressed');
   if (!container.classList.contains('blur')) {
+    console.log("Creating new book");
     addBookToLibrary();
   }
 });
@@ -140,6 +140,7 @@ function addBookToLibrary() {
 
     cancel.addEventListener("click", function () {
       container.classList.remove('blur');
+      console.log("Cancelling new book");
       popup.remove();
     });
 
@@ -152,10 +153,10 @@ function addBookToLibrary() {
       event.preventDefault(); 
 
       // Create Object
-      console.log('Creating Object');
       var readstate = false;
       if (readinput.checked) readstate = true;
       const book = new Book(titleinput.value, authorinput.value, pageinput.value, readstate);
+      console.log("Created book");
       book.info();
       myLibrary.push(book);
       console.log(book);
@@ -177,7 +178,7 @@ function addBookToLibrary() {
       // Add Author to the book card
       const bookauthor = document.createElement("p");
       bookauthor.classList.add('description');
-      bookauthor.textContent = book.author;
+      bookauthor.textContent = "Author: " + book.author;
       newbook.appendChild(bookauthor);
 
       // Add Page Count to the book card
@@ -215,6 +216,7 @@ function addBookToLibrary() {
           readstatebox.classList.add('readstatebox-read');
           readstatebox.classList.remove('readstatebox-notread');
         }
+        console.log("Changed read state to " + book.read);
       });
 
       // Add remove icon to the book card 
@@ -237,7 +239,7 @@ function addBookToLibrary() {
 
       // Remove function for card 
       bookaction.addEventListener("click", function () {
-        console.log('Remove button pressed');
+        console.log('Removed book');
         myLibrary = myLibrary.filter((item) => item !== book);
         newbook.remove();
       });
