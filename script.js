@@ -29,6 +29,8 @@ createBook.addEventListener("click", function () {
 function addBookToLibrary() {
     // Create dialogue box with form element 
     const layout = document.querySelector('body');
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
     const bookdialogue = document.createElement('div');
     bookdialogue.classList.add('bookdialogue');
     const bookform = document.createElement('form');
@@ -127,10 +129,17 @@ function addBookToLibrary() {
     cancel.classList.add('cancel');
     cancel.textContent = "Cancel";
     bookdialogue.appendChild(cancel);
-    layout.appendChild(bookdialogue);
+  
+    const popupTitle = document.createElement('h2');
+    popupTitle.classList.add('popupTitle');
+    popupTitle.textContent = "Add Book:";
+    popup.appendChild(popupTitle);
+    popup.appendChild(bookdialogue);
+    layout.appendChild(popup);
+
     cancel.addEventListener("click", function () {
       container.classList.remove('blur');
-      bookdialogue.remove();
+      popup.remove();
     });
 
     // Create Book Object and remove dialogue
@@ -150,8 +159,8 @@ function addBookToLibrary() {
       myLibrary.push(book);
       console.log(book);
 
-      // Remove dialogue box
-      bookdialogue.remove();
+      // Remove popup
+      popup.remove();
 
       // Create Book from form input 
       const layoutarea = document.querySelector('.layout');
