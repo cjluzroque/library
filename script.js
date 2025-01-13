@@ -166,6 +166,16 @@ function addBookToLibrary() {
       bookpages.textContent = book.pages + " Pages";
       newbook.appendChild(bookpages);
 
+      // Add Page Count to the book card
+      const bookread = document.createElement("p");
+      bookread.classList.add('bookread');
+      if (book.read) {
+        bookread.textContent = 'Already Read'
+      } else {
+        bookread.textContent = 'Haven\'t Read';
+      }
+      newbook.appendChild(bookread);
+
       // Add remove icon to the book card 
       const bookaction = document.createElement("div");
       bookaction.classList.add('actions');
