@@ -109,6 +109,7 @@ function addBookToLibrary() {
 
     const readinput = document.createElement('input');
     readinput.classList.add('readinput');
+    readinput.classList.add('checkbox');
 
     readinput.type = 'checkbox';
     readinput.name = 'read';
@@ -185,15 +186,36 @@ function addBookToLibrary() {
       bookpages.textContent = book.pages + " Pages";
       newbook.appendChild(bookpages);
 
-      // Add Page Count to the book card
-      const bookread = document.createElement("p");
+      // Add Read state to the book card book.read
+      const bookread = document.createElement("div");
       bookread.classList.add('bookread');
+      const readstatebox = document.createElement('button');
+      readstatebox.name = 'read';
       if (book.read) {
-        bookread.textContent = 'Already Read'
+        readstatebox.checked = true;
+        readstatebox.textContent = 'Read'
+        readstatebox.classList.add('readstatebox-read');
       } else {
-        bookread.textContent = 'Haven\'t Read';
+        readstatebox.checked = false;
+        readstatebox.textContent = 'Not Read';
+        readstatebox.classList.add('readstatebox-notread');
       }
+      bookread.appendChild(readstatebox);
       newbook.appendChild(bookread);
+
+      readstatebox.addEventListener('click', function() {
+        if (book.read) {
+          book.read = false;
+          readstatebox.textContent = 'Not Read';
+          readstatebox.classList.remove('readstatebox-read');
+          readstatebox.classList.add('readstatebox-notread');
+        } else {
+          book.read = true;
+          readstatebox.textContent = 'Read';
+          readstatebox.classList.add('readstatebox-read');
+          readstatebox.classList.remove('readstatebox-notread');
+        }
+      });
 
       // Add remove icon to the book card 
       const bookaction = document.createElement("div");

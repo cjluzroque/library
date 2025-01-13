@@ -205,6 +205,7 @@ span:focus-visible {
     width: 250px;
 }
 
+
 .buttons {
     margin-left: auto;
     display: flex; 
@@ -228,10 +229,14 @@ button {
 }
 
 button:hover {
-    background-color: var(--orange);
+
     transition: background-color 50ms;
     transform: scale(1.05);
     transform: transform 50ms;
+}
+
+.buttons>button:hover {
+    background-color: var(--orange);
 }
 
 .main-layout {
@@ -399,6 +404,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0.5px 0.5px 3px black;
 }
 
 .popup {
@@ -417,6 +423,14 @@ button:hover {
     gap: 0.5em;
 }
 
+.bookread {
+    display: flex;
+}
+
+.readstatebox {
+    margin: 0;
+}
+
 .blur {
     filter: blur(3px) brightness(0.7);
 }
@@ -426,4 +440,13 @@ button:hover {
     size: 1em;
     margin-left: 0.5em;
     font-weight: bold;
+    text-shadow: 0.5px 0.5px 3px black;
+}
+
+.readstatebox-read {
+    background-color: green;
+}
+
+.readstatebox-notread {
+    background-color: red;
 }
